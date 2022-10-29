@@ -1,0 +1,81 @@
+name: '🚀 FTP Upload'
+author: 'Bohdan Shtepan <bohdan@modern-dev.com>'
+description: >-
+  Copy all the files and folders via FTP from your Git project to your server in a specific path,
+  delete remote folder before.
+inputs:
+  server:
+    description: 'FTP Server.'
+    required: true
+  user:
+    description: 'FTP User.'
+    required: true
+  password:
+    description: 'FTP Password.'
+    required: true
+  local_dir:
+    description: 'Local directory.'
+    required: false
+    default: './'
+  remote_dir:
+    description: 'Remote directory.'
+    required: false
+    default: './'
+  delete:
+    description: 'Delete all the files inside of the remote directory.'
+    required: false
+    default: 'false'
+  exclude:
+    description: 'Exclude matching files.'
+    required: false
+    default: ''
+  exclude_glob:
+    description: 'Exclude matching files'
+    required: false
+    default: ''
+  max_retries:
+    description: 'Times that the lftp will be executed if an error occurred.'
+    required: false
+    default: '10'
+  no_symlinks:
+    description: 'Do not create symbolic links.'
+    required: false
+    default: 'true'
+  ftp_ssl_allow:
+    description: 'FTP - Allow SSL encryption.'
+    required: false
+    default: 'false'
+  ftp_use_feat:
+    description: 'FTP - FEAT: Determining what extended features the FTP server supports.'
+    required: false
+    default: 'false'
+  ftp_nop_interval:
+    description: 'FTP - Delay in seconds between NOOP commands when downloading tail of a file.'
+    required: false
+    default: '2'
+  net_max_retries:
+    description: 'NET - Maximum number of operation without success. 0 unlimited. 1 no retries.'
+    required: false
+    default: '1'
+  net_persist_retries:
+    description: 'NET - Ignore hard errors. When reply 5xx errors or there is too many users.'
+    required: false
+    default: '5'
+  net_timeout:
+    description: 'NET - Sets the network protocol timeout.'
+    required: false
+    default: '15s'
+  dns_max_retries:
+    description: 'DNS - 0 no limit trying to lookup an address otherwise try only this number of times.'
+    required: false
+    default: '8'
+  dns_fatal_timeout:
+    description: 'DNS - Time for DNS queries. Set to "never" to disable.'
+    required: false
+    default: '10s'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+branding:
+  color: 'blue'
+  icon: 'send'
