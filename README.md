@@ -1,4 +1,4 @@
-🚀 FTP Upload GitHub action
+🚀 FTP Mirror
 ===================================
 
 Syncs a local folder with a remote folder over FTP using GitHub Workflow.
@@ -22,7 +22,7 @@ jobs:
       - uses: actions/checkout@v2
       # Here is the deployment action
       - name: Upload from output to a remote server via FTP
-        uses: modern-dev/ftp-upload@latest
+        uses: modern-dev/ftp-mirror@latest
         with:
           server: ${{ secrets.FTP_SERVER }}
           user: ${{ secrets.FTP_USERNAME }}
@@ -60,7 +60,7 @@ More information in the official site for [lftp - Manual pages][3]
 
 ## :green_book: License
 
-[Licensed under the MIT license.](https://github.com/modern-dev/ftp-upload/blob/master/LICENSE)
+[Licensed under the MIT license.](https://github.com/modern-dev/ftp-mirror/blob/master/LICENSE)
 
 Copyright (c) 2022 Bohdan Shtepan
 
