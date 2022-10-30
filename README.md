@@ -22,12 +22,13 @@ jobs:
       - uses: actions/checkout@v2
       # Here is the deployment action
       - name: Upload from output to a remote server via FTP
-        uses: modern-dev/ftp-mirror@latest
+        uses: modern-dev/ftp-mirror@v2
         with:
           server: ${{ secrets.FTP_SERVER }}
           user: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local_dir: "./output"
+          remote_dir: "./http"
           delete: "false"
           exlude: "data/ cache/"
 ```
